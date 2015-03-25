@@ -1,2 +1,9 @@
-<h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
+<h1>Mini Stackoverflow</h1>
+
+<h2>Questions</h2>
+
+<% @questions.each do |question| %>
+  <%= question.title %>
+  <%= question.user %>
+  <%= question.content %>
+<% end %>
