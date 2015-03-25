@@ -23,6 +23,15 @@ class QuestionsController < ApplicationController
   end
 
   def upvote
+    # Add 1 to the votes column
+    @question = Question.find(params[:id])
+    @question.votes += 1
+    if @question.save
+      flash[:notice] = "Thanks for your vote!"
+      redirect_to questions_path
+    else
+      flash[:notice] = "No"
+    end
   end
 
   def downvote

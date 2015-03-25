@@ -5,8 +5,7 @@
       <th>Votes</th>
       <th>Title</th>
       <th>Description</th>
-      <th>Upvote</th>
-      <th>Downvote</th>
+      <th>Votes</th>
       <th colspan='2'></th>
     </tr>
   <% @questions.each do |question| %>
@@ -14,8 +13,15 @@
       <td><%= question.votes %></td>
       <td><%= question.title %></td>
       <td><%= question.description %></td>
-      <td></td>
-      <td></td>
+      <td> <a href=<%= upvote_question_path(id: question.id) %>>
+        <button type="button" class="btn btn-default btn-md">
+           <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+          </button>
+          </a>
+        <button type="button" class="btn btn-default btn-md">
+           <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+          </button>
+      </td>
       <td><%= link_to 'Edit', edit_question_path(question) %></td>
       <td><%= link_to 'Destroy', question_path(question),
               method: :delete,

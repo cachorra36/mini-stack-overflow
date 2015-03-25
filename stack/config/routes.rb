@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :questions
+  resources :questions do
+    member do
+      get 'upvote'
+      get 'downvote'
+    end
+  end
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
