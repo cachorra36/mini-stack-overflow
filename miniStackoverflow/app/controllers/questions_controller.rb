@@ -1,13 +1,13 @@
 class QuestionsController < ApplicationController
   before_action :fetch_question , only: [:show, :edit, :update, :destroy]
 
-
   def index
     @questions = Question.all
   end
 
   def show
-    # @question = Question.find(params[:id])
+    @answer = Answer.new
+    @ansers = Question.find(params[:id]).answers
   end
 
   def new
@@ -15,7 +15,6 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    # @question = Question.find(params[:id])
   end
 
   def create
@@ -28,13 +27,11 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    # @question = Question.find(params[:id])
     @question.update(question_params)
     redirect_to @question
   end
 
   def destroy
-    # @question = Question.find(params[:id])
     @question.destroy
   end
 

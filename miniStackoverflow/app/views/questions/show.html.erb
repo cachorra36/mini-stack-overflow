@@ -1,7 +1,39 @@
 
-<p>tittle: <%= @question.title %></p>
-<p> content: <%= @question.content %></p>
-<p>user: <%= @question.user %></p>
+<p>Title: <%= @question.title %></p>
+<p>Content: <%= @question.content %></p>
+<p>User: <%= @question.user %></p>
 
-<%= link_to "Edit", edit_question_path(@question.id) %>
-<%= link_to "Back to all Questions", questions_path %>
+
+<h4>Anwers:</h4>
+
+<% @ansers.each do |answer| %>
+  <%= answer.title %><br>
+  <%= answer.content %><br>
+  <small>by: <%= answer.content %><br></small>
+<% end %>
+
+
+<h4>write an answer:</h4>
+
+<%= form_for @answer do  |f| %>
+<p>
+  <%= f.label :title  %><br>
+  <%= f.text_field :title  %>
+</p>
+<p>
+  <%= f.label :content %><br>
+  <%= f.text_area :content  %>
+</p>
+<p>
+  <%= f.label :user ,"Ansering" %><br>
+  <%= f.text_field :user  %>
+  <%= f.hidden_field :question_id, :value => "#{@question.id}" %>
+</p>
+<p>
+  <%= f.submit "Send" %>
+</p>
+<% end %>
+
+
+<%= link_to "Edit", edit_question_path(@question.id) , class: "btn btn-default" %>
+<%= link_to "Back to all Questions", questions_path , class: "btn btn-default" %>
