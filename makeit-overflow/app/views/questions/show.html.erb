@@ -1,0 +1,38 @@
+<h1>
+	<%= @question.title %>
+
+</h1>
+
+
+<h3>
+	
+	<%= @question.content %>
+
+
+</h3>
+
+
+<table>
+	<thead>
+		
+		<th>Title</th>
+		<th>Content</th>
+
+
+	</thead>
+
+	<tbody>
+		
+	<% @answers.each do |answer| %>
+		
+		<tr>
+		<td><%= answer.title %></td>
+		<td><%= answer.content %></td>
+		</tr>
+	<% end %>
+
+
+	</tbody>
+
+
+</table>
