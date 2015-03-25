@@ -1,0 +1,10 @@
+# Make it real Overflow
+
+### MiniStackoverflow
+
+The intention of this repository is to practice some basic skills used for creating rails Applications in a propper, structured way.
+
+
+## Summary
+
+This readme will be updated on each big change applied to the app
