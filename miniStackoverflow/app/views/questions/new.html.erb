@@ -1,26 +1,2 @@
-<%= form_for @question do |f| %>
-
-<p>
-  <%= f.label :title  %><br>
-  <%= f.text_field :title  %>
-</p>
-<p>
-  <%= f.label :content %><br>
-  <%= f.text_area :content  %>
-</p>
-<p>
-  <%= f.label :user  %><br>
-  <%= f.text_field :user  %>
-</p>
-<p>
-  <%= f.sumbit "Create Question" %>
-  <%= f.sumbit %>
-</p>
-
-<% end %>
-
-<!--
-<form action="">
-<label for="question[title]">Title</label>
-  <input type="text" name="question[title]" >
-</form> -->
+<h1>Create a new Question:</h1>
+<%= render 'form' %>

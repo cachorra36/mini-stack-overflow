@@ -3,7 +3,15 @@
 <h2>Questions</h2>
 
 <% @questions.each do |question| %>
-  <%= question.title %>
-  <%= question.user %>
+<p>
+  <%= question.title %><br>
+  <small>by: <%= question.user %></small><br>
   <%= question.content %>
+</p>
+<%= link_to "edit", edit_question_path(question)  %>
+<%= link_to "delete", question_path(question), method: :delete, data: {confirm: "Are you to delete the question ?"}  %>
+
 <% end %>
+<p>
+  <%= link_to "New Question", new_question_path %>
+</p>
