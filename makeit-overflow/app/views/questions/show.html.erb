@@ -1,18 +1,11 @@
 <h1>
 	<%= @question.title %>
-
 </h1>
-
-
-<h2>
-	
+<h2>	
 	<%= @question.content %>
-
-
 </h2>
 
-
-<h3> Respuestas</h3>
+<h3>Answers</h3>
 <table>
 	<thead>
 		
@@ -32,8 +25,10 @@
 		</tr>
 	<% end %>
 
-
 	</tbody>
 
 
 </table>
+<br>
+
+<%= link_to 'Volver', questions_path %>
