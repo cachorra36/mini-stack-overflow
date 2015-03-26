@@ -32,6 +32,7 @@ class QuestionsController < ApplicationController
       redirect_to questions_path
     else
       flash[:notice] = "You can only vote once"
+      redirect_to questions_path
     end
   end
 
