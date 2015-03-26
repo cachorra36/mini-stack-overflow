@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+number = 5
+number.times do |user|
+  add_password = Faker::Internet.password
+  user = User.create(email: Faker::Internet.email, password: add_password)
+  5.times do |question|
+    question = Question.create(user: user, title: Faker::Name.title, description: Faker::Hacker.say_something_smart)
+  end
+end
+
+Question.all.each do |question|
+  2.times do |answer|
+    answer = Answer.create(user_id: User.find(rand(1..number)).id, question: question, title: Faker::Name.title, description: Faker::Hacker.say_something_smart)
+  end
+end
