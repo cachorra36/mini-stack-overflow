@@ -1,10 +1,24 @@
 class Vote < ActiveRecord::Base
-  # validates :amount, numericality: { greater_than: -2, less_than: 2, scope: :vote_type_id, scope: :user_id, scope: :vote_type_type, message: "You van only vote once" }
+  validates_numericality_of :value, numericality: { message: "You van only vote once" }, in: -1..1
   belongs_to :vote_type, polymorphic: true
   belongs_to :user
-  # def amount(user_id, vote_type_id, vote_type_type)
-  #   sum = User.user_id.questions.vote_type_type(vote_type_id).votes.sum(:value)
-  #   return sum
+  # validates :sum_of_values
+
+
+  # def sum_of_values(amount)
+  #   unless (amount + self.value).between?(-1,1) 
+  #   	errors.add(message: "You can not vote on that direction")
+  #   end
   # end
+
+  # def amount
+  #   vote_value = User.find(user_id).votes.where(vote_type_type: vote_type_local, vote_type_id: vote_type_id_local).sum(:value)
+  # end
+
+  # def amount(votes)
+  # 	votes.sum(:value)
+  # end
+
+
 
 end
