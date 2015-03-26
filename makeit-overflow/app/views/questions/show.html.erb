@@ -1,7 +1,7 @@
 <h1>
 	<%= @question.title %>
 </h1>
-<h2>	
+<h2>
 	<%= @question.content %>
 </h2>
 <h3>Add a new answer</h3>
@@ -11,18 +11,19 @@
 <h3>Answers</h3>
 <table>
 	<thead>
-		
+
 		<th>Title</th>
 		<th>Content</th>
 
 	</thead>
 
 	<tbody>
-		
-	<% @answers.each do |answer| %>		
+
+	<% @answers.each do |answer| %>
 		<tr>
 		<td><%= answer.title %></td>
 		<td><%= answer.content %></td>
+		<td><%= link_to "Delete", question_answer_path(answer.question.id, answer), method: :delete  %></td>
 		</tr>
 	<% end %>
 

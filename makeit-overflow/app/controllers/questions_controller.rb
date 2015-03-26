@@ -1,15 +1,13 @@
 class QuestionsController < ApplicationController
 
 	def index
-		@questions = Question.all	
+		@questions = Question.all
 		@question = Question.new
 	end
 
 	def show
-
-		@question = Question.find(params[:id]) 
+		@question = Question.find(params[:id])
 		@answers = @question.answers
-		
 	end
 
 	def new
@@ -38,7 +36,6 @@ class QuestionsController < ApplicationController
   	def destroy
   		@question = Question.find(params[:id])
   		@question.destroy
-
   		redirect_to root_path
   	end
 
