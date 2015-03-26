@@ -6,7 +6,7 @@
 </h2>
 <h3>Add a new answer</h3>
 
-
+<%= render "answers/form" %>
 
 <h3>Answers</h3>
 <table>
@@ -23,7 +23,7 @@
 		<tr>
 		<td><%= answer.title %></td>
 		<td><%= answer.content %></td>
-		<td><%= link_to "Delete", question_answer_path(answer.question.id, answer), method: :delete  %></td>
+		<td><%= link_to "Edit", edit_question_answer_path(answer.question.id, answer) %> <%= link_to "Delete", question_answer_path(answer.question.id, answer), method: :delete  %></td>
 		</tr>
 	<% end %>
 
@@ -33,4 +33,4 @@
 </table>
 <br>
 
-<%= link_to 'Volver', questions_path %>
+<%= link_to 'Return', questions_path %>

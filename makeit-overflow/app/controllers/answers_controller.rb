@@ -13,14 +13,15 @@ class AnswersController < ApplicationController
 
  def create
     @answer = Answer.new (answer_params)
-    @answer.question_id = Question.find(params[:question_id].id)
+    @answer.question_id = Question.find(params[:question_id]).id
 
     @answer.save
-    redirect_to question_answers_path(params[:question_id])
+    redirect_to question_path(params[:question_id])
   end
 
 	def edit
 		@answer = Answer.find(params[:id])
+    @questionnew = Question.find(params[:question_id])
 	end
 
 	def update
