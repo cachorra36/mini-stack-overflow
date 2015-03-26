@@ -1,17 +1,18 @@
-<h1>Mini Stackoverflow</h1>
-
-<h2>Questions</h2>
-
-<% @questions.each do |question| %>
-<p>
-  <%= link_to question.title, question_path(question) %><br>
-  <small>by: <%= question.user %></small><br>
-  <%= question.content %>
-</p>
-<%= link_to "edit", edit_question_path(question)  %>
-<%= link_to "delete", question_path(question), method: :delete, data: {confirm: "Are you to delete the question ?"}  %>
-
-<% end %>
-<p>
-  <%= link_to "New Question", new_question_path %>
-</p>
+<div class="row questions-index">
+  <div class="col-lg-8 col-lg-offset-2">
+    <h1>Mini Stackoverflow</h1>
+    <% @questions.each do |question| %>
+    <div class="well">
+    <h2><%= link_to question.title, question_path(question) %></h2>
+      <small>by: <%= question.user %></small><br>
+      <%= question.content %>
+    </p>
+    <%= link_to "edit", edit_question_path(question)  %>
+    <%= link_to "delete", question_path(question), method: :delete, data: {confirm: "Are you to delete the question ?"}  %>
+  </div>
+  <% end %>
+  <p>
+    <%= link_to "New Question", new_question_path %>
+  </p>
+</div>
+</div>
