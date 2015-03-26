@@ -1,16 +1,31 @@
 
-<h1>Mini Stack Overflow</h1>
-
 <h2>Questions</h2>
 
 	<%= render "form" %>
 
-<ul>
-	<% @questions.each do |question| %>
+  <h3>Current questions</h3>
 
+<table class="table table-striped">
+  <thead>
+    <th class="col-md-2">Title</th>
+    <th class="col-md-1"># Answers</th>
+    <th class="col-md-6">Content</th>
+    <th class="col-md-1">Votes</th>
+    <th class="col-md-1">Vote</th>
+    <th class="col-md-1">Action</th>
+  </thead>
 
-	<li><%= link_to question.title, question_path(question) %> <%= link_to 'Edit', edit_question_path(question) %> <%= link_to 'Delete', question_path(question), method: :delete %></li> 
-	
-	<% end %>
-</ul>
+  <tbody>
+  	<% @questions.each do |question| %>
+      <tr>
+        <td><%= link_to question.title, question_path(question) %></td>
+        <td class="text-center"><%= question.answers.count %> </td>
+        <td><%= question.content %></td>
+        <td>TotalVotes</td>
+        <td>Upvote | Downvote</td>
+        <td><%= link_to 'Edit', edit_question_path(question) %> <%= link_to 'Delete', question_path(question), method: :delete %></td>
+      </tr>
+  	<% end %>
 
+  </tbody>
+</table>

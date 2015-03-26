@@ -8,7 +8,17 @@
 </head>
 <body>
 
-<%= yield %>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to "MIR Stack Overflow", root_path, class:"navbar-brand" %>
+      </div>
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

@@ -1,36 +1,40 @@
 <h1>
 	<%= @question.title %>
 </h1>
-<h2>
+<hr>
+<h4 class="col-md-5">
 	<%= @question.content %>
-</h2>
+</h4>
 <h3>Add a new answer</h3>
 
-<%= render "answers/form" %>
+<div>
+	<%= render "answers/form" %>
+</div>
+
+<hr>
 
 <h3>Answers</h3>
-<table>
-	<thead>
-
-		<th>Title</th>
-		<th>Content</th>
-
-	</thead>
+<table class="table table-striped">
+  <thead>
+    <th class="col-md-2">Title</th>
+    <th class="col-md-6">Content</th>
+    <th class="col-md-1">Votes</th>
+    <th class="col-md-1">Vote</th>
+    <th class="col-md-2">Action</th>
+  </thead>
 
 	<tbody>
 
-	<% @answers.each do |answer| %>
-		<tr>
-		<td><%= answer.title %></td>
-		<td><%= answer.content %></td>
-		<td><%= link_to "Edit", edit_question_answer_path(answer.question.id, answer) %> <%= link_to "Delete", question_answer_path(answer.question.id, answer), method: :delete  %></td>
-		</tr>
-	<% end %>
+		<% @answers.each do |answer| %>
+			<tr>
+			<td><%= answer.title %></td>
+			<td><%= answer.content %></td>
+			<td>#Votes</td>
+			<td>Upvote | Downvote</td>
+			<td><%= link_to "Edit", edit_question_answer_path(answer.question.id, answer) %> <%= link_to "Delete", question_answer_path(answer.question.id, answer), method: :delete  %></td>
+			</tr>
+		<% end %>
 
 	</tbody>
-
-
 </table>
 <br>
-
-<%= link_to 'Return', questions_path %>

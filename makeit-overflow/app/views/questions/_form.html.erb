@@ -1,17 +1,23 @@
-<%= form_for @question do|f| %>
+<div class="form-group">
+  <div class="container">
+    <div class="well col-md-5">
+      <%= form_for @question do|f| %>
 
-<p>
-	<%= f.label :title %> <br>
-	<%= f.text_field :title %>
-</p>
+      <p>
+      	<%= f.label :title %>
+      	<%= f.text_field :title, class:"form-control" %>
+      </p>
 
-<p>
-	<%= f.label :content %><br>
-	<%= f.text_area :content %>
+      <p>
+      	<%= f.label :content %><br>
+      	<%= f.text_area :content, class:"form-control" %>
 
-</p>
-<p>
-	
-	<%= f.submit %>
-</p>
-<% end %>
+      </p>
+      <p>
+
+      	<%= f.button :submit => "", class:'btn btn-success' %>
+      </p>
+      <% end %>
+    </div>
+  </div>
+</div>
