@@ -1,2 +1,14 @@
-<h1>Questions#show</h1>
-<p>Find me in app/views/questions/show.html.erb</p>
+
+<h1><%= @question.title %></h1>
+
+<%= @question.description %>
+
+<% @question.answers.each do |answer| %>
+	<h1> Answer:<%= answer.title %></h1>
+	<p><%= answer.description %></p>
+	<p></p>
+	<% end %>
+
+<a href= <%= edit_question_path(@question.id) %>>Edit </a>
+<%= link_to 'Delete', question_path(@question.id), method: :delete, 
+	data: {confirm: "Are you sure?"} %>

@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create(email:"example@example.com", password:"12345678")
+User.create(email:"example2@example.com", password:"12345678")
 
 number = 5
 number.times do |user|
