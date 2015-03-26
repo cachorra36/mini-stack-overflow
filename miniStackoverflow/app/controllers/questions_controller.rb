@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
 
   def show
     @answer = Answer.new
-    @ansers = Question.find(params[:id]).answers
+    @answers = Question.find(params[:id]).answers
   end
 
   def new
@@ -36,7 +36,26 @@ class QuestionsController < ApplicationController
     redirect_to questions_path
   end
 
+  def up_vote
+    # @vote = Vote.new(value: 'true',votable_type: 'question', id:1)
+    @question = Question.find(params[:id])
+    @question.votes.create
+    redirect_to question_path(params[:id])
+  end
+
+  def down_vote
+    @question = Question.find(params[:id])
+    @question.votes.last.destroy
+    redirect_to question_path(params[:id])
+  end
+
   private
+
+  def vote_params
+    params.require(:vote).permit(:value, :votable_id, :votable_type)
+    # params.require(:vote).permit(:id)
+
+  end
 
   def question_params
     params.require(:question).permit(:title, :content, :user)

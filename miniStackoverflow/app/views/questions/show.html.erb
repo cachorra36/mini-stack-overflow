@@ -1,12 +1,15 @@
 
-<p>Title: <%= @question.title %></p>
+<h1>title: <%= @question.title %></h1>
 <p>Content: <%= @question.content %></p>
 <p>User: <%= @question.user %></p>
+
+<%= link_to "+", up_vote_question_path(@question.id), method: "post", class: "btn btn-success btn-sm" %>
+<%= link_to "-", down_vote_question_path(@question.id), method: "delete", class: "btn btn-danger btn-sm" %>
 
 
 <h4>Anwers:</h4>
 
-<% @ansers.each do |answer| %>
+<% @answers.each do |answer| %>
   <%= answer.title %><br>
   <%= answer.content %><br>
   <small>by: <%= answer.content %><br></small>
