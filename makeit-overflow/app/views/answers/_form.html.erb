@@ -1,7 +1,8 @@
 <div class="form-group">
   <div class="container">
     <div class="well col-md-5">
-      <%= form_for [@question, @answer] do|f| %>
+
+      <%= form_for @answer do|f| %>
 
       <p>
         <%= f.label :title %> <br>
@@ -11,9 +12,11 @@
       <p>
         <%= f.label :content %><br>
         <%= f.text_area :content, class:"form-control" %>
+        <%= hidden_field :answer , :question_id, :value => @question.id %>
       </p>
       <p>
         <%= f.button :submit => "", class:'btn btn-success' %>
+
       </p>
       <% end %>
     </div>
