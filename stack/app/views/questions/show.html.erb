@@ -4,6 +4,11 @@
 <p><%= @question.description %></p>
 
 <h1>Answers:</h1>
+<p>
+  <button class="btn btn-default">
+    <%= link_to "New Answer", new_question_answer_path(@question) %>  
+  </button>
+</p>
 <table class="table" id="answers">
     <tr>
       <th>Votes</th>
@@ -35,6 +40,13 @@
   <% end %>
 </table>  
 
-<a href= <%= edit_question_path(@question.id) %>>Edit </a>
-<%= link_to 'Delete', question_path(@question.id), method: :delete, 
-	data: {confirm: "Are you sure?"} %>
+<button type="button" class="btn btn-default">
+  <a href= <%= edit_question_path(@question.id) %>>Edit question</a>
+</button>
+<button type="button" class="btn btn-default">
+  <%= link_to 'Delete question', question_path(@question.id), method: :delete, 
+    data: {confirm: "Are you sure?"} %>
+</button>
+<button class="btn btn-default">
+  <%= link_to 'Back', questions_path %>
+</button>
