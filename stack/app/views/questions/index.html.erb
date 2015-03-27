@@ -24,12 +24,12 @@
       <td> <a href= <%= question_path(question)  %>><%= question.title %></a></td>
       <td><%= question.description %></td>
       <td> 
-        <a href=<%= upvote_question_path(id: question.id) %>>
+        <%= link_to upvote_question_path(id: question.id), remote: true do %>
           <button type="button" class="btn btn-default btn-md">
            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
           </button>
-        </a>
-        <a href=<%= downvote_question_path(id: question.id) %>>
+        <% end %>
+        <a href=<%= downvote_question_path(id: question.id)%>>
           <button type="button" class="btn btn-default btn-md">
             <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
           </button>

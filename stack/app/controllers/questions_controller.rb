@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, except: :index
   before_action :find, only: [:show, :edit, :destroy]
+  respond_to :html, :js
 
   def index
     @questions = Question.all
