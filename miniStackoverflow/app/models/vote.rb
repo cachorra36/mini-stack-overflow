@@ -13,5 +13,4 @@ class Vote < ActiveRecord::Base
     counter
   end
 
-
 end

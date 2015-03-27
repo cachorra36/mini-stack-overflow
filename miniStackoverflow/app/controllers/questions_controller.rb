@@ -1,6 +1,5 @@
 class QuestionsController < ApplicationController
   before_action :fetch_question , only: [:show, :edit, :update, :destroy, :down_vote, :up_vote]
-  votes_down = Question.find(1).votes.where(value: false).count
 
   def index
     @questions = Question.all

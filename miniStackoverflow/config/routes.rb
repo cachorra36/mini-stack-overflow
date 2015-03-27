@@ -8,6 +8,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :answers
+  resources :answers do
+    member do
+      post "up_vote"
+      delete 'down_vote'
+    end
+  end
   # post 'questions/:id/up_vote' => "questions#up_vote"
 end

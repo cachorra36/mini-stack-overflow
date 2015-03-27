@@ -9,13 +9,18 @@ Votes: <strong><%=  Vote.counter(@question.votes) %> </strong>
 <%= link_to "-", down_vote_question_path(@question.id), method: "delete", class: "btn btn-danger btn-sm" %>
 
 <h4>Anwers:</h4>
-
-<% @answers.each do |answer| %>
-  <%= answer.title %><br>
+<div class="well">
+  <% @answers.each do |answer| %>
+ <h4><%= answer.title %></h4><br>
   <%= answer.content %><br>
   <small>by: <%= answer.content %><br></small>
-<% end %>
-
+  <p >
+    Votes: <strong><%=  Vote.counter(answer.votes) %> </strong>
+    <%= link_to "+", up_vote_answer_path(id:answer.id, question_id: @question.id), method: "post", class: "btn btn-success btn-sm" %>
+    <%= link_to "-", down_vote_answer_path(id:answer.id, question_id: @question.id ), method: "delete", class: "btn btn-danger btn-sm" %>
+    </p>
+  <% end %>
+</div>
 
 <h4>write an answer:</h4>
 
