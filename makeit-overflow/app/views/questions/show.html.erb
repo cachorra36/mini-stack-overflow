@@ -29,8 +29,11 @@
 			<tr>
 			<td><%= answer.title %></td>
 			<td><%= answer.content %></td>
-			<td>#Votes</td>
-			<td>Upvote | Downvote</td>
+			<td><%= pluralize(answer.votes.count, "vote") %></td>
+			<td>
+          <%= button_to '+1', upvote_question_answer_path(answer.question.id, answer), method: :post, :class => "btn btn-sm" %>
+          <%= button_to '-1', downvote_question_answer_path(answer.question.id, answer), method: :post, :class => "btn btn-sm" %>
+        </td>
 			<td><%= link_to "Edit", edit_question_answer_path(answer.question.id, answer) %> <%= link_to "Delete", question_answer_path(answer.question.id, answer), method: :delete  %></td>
 			</tr>
 		<% end %>
