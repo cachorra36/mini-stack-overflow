@@ -6,6 +6,17 @@ class AnswersController < ApplicationController
   def new
     @question = Question.find(params[:question_id])
     @answer = @question.answers.new
+
+  end
+
+  def create
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.create(answer_params)
+    if @answer.save
+      redirect_to question_path(@question)
+     else
+       render 'new'
+     end
   end
 
   def edit
@@ -49,5 +60,12 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     answervote(-1, "downvote", params[:id], "Answer")
     redirect_to question_path(@question)
+  end
+
+  private
+
+  def answer_params
+    params.require(:answer).permit(:title, :description, :question_id)
+
   end
 end
