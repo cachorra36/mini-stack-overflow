@@ -20,6 +20,17 @@ class AnswersController < ApplicationController
   end
 
   def edit
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:question_id])
+    if @question.answers.update(answer_params)
+      redirect_to question_path(@question)
+    else
+      render 'edit'
+    end
   end
 
   def answervote(value, vote_type, question_id, ques_ans)
