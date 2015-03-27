@@ -31,8 +31,14 @@
 			<td><%= answer.content %></td>
 			<td><%= pluralize(answer.votes.count, "vote") %></td>
 			<td>
-          <%= button_to '+1', upvote_answer_path(answer), method: :post, :class => "btn btn-sm" %>
-          <%= button_to '-1', downvote_answer_path(answer), method: :delete, :class => "btn btn-sm" %>
+          <%= button_to  upvote_answer_path(answer), method: :post, :class => "btn btn-sm
+          	btn-success" do %>
+          <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+          <% end %>
+          <%= button_to downvote_answer_path(answer), method: :delete, :class =>  "btn btn-sm
+          	btn-danger" do %>
+          <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+          <% end %>
         </td>
 			<td><%= link_to "Edit", edit_answer_path(answer) %> <%= link_to "Delete",answer_path(answer), method: :delete  %></td>
 			</tr>

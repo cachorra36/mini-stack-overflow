@@ -14,4 +14,5 @@ Rails.application.routes.draw do
 			delete 'downvote'
 		end
 
+	end
 end

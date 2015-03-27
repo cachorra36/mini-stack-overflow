@@ -7,6 +7,10 @@ class QuestionsController < ApplicationController
 	def index
 		@questions = Question.all
 		@question = Question.new
+		@api = Github::Cliente.new
+		@zen = @api.zen
+
+		#@response = HTTParty.get('https://api.github.com/zen', :headers =>  {"User-Agent" => "Nosotros"})
 	end
 
 	def show
@@ -49,7 +53,9 @@ class QuestionsController < ApplicationController
 
 	def downvote
 		@question = Question.find(params[:id])
-		@question.votes.first.destroy
+		
+		@question.votes.first.destroy if @question.votes.count > 0 
+
 		redirect_to root_path
 	end
 

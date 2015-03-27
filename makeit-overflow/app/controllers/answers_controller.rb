@@ -43,7 +43,7 @@ class AnswersController < ApplicationController
 
     def downvote
       @answer = Answer.find(params[:id])
-      @answer.votes.first.destroy
+      @answer.votes.first.destroy if @answer.votes.count > 0
       redirect_to question_path(@answer.question)
     end
 
