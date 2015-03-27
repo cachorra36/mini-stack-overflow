@@ -10,7 +10,6 @@ class QuestionsController < ApplicationController
 		@api = Github::Cliente.new
 		@zen = @api.zen
 
-		#@response = HTTParty.get('https://api.github.com/zen', :headers =>  {"User-Agent" => "Nosotros"})
 	end
 
 	def show
