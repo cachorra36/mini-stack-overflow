@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :fetch_question , only: [:show, :edit, :update, :destroy, :down_vote, :up_vote]
+  votes_down = Question.find(1).votes.where(value: false).count
 
   def index
     @questions = Question.all
@@ -8,10 +9,9 @@ class QuestionsController < ApplicationController
   def show
     @answer = Answer.new
     @answers = Question.find(params[:id]).answers
-    @votes_count = Question.find(1).votes.count
   end
 
-  def new
+   def new
     @question = Question.new
   end
 
@@ -38,17 +38,18 @@ class QuestionsController < ApplicationController
   end
 
   def up_vote
-    @question.votes.create
+    # @question.votes.create(value)
+    @question.votes.create(value:true)
     redirect_to question_path(params[:id])
   end
 
   def down_vote
-    @question.votes.last.destroy if @question.votes.count > 0
+    # @question.votes.last.destroy if @question.votes.count > 0
+    @question.votes.create(value:false)
     redirect_to question_path(params[:id])
   end
 
   private
-
 
   # def vote_params
   #   params.require(:vote).permit(:value, :votable_id, :votable_type)
