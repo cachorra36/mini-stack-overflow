@@ -18,12 +18,12 @@
       <td><%= answer.title %></td>
       <td><%= answer.description %></td>
       <td> 
-          <a href=<%= upvote_question_path(id: question.id) %>>
+          <a href=<%= upvote_question_answer_path(@question.id, answer) %>>
           <button type="button" class="btn btn-default btn-md">
            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
           </button>
         </a>
-        <a href=<%= downvote_question_path(id: question.id) %>>
+        <a href=<%= downvote_question_answer_path(@question.id, answer) %>>
           <button type="button" class="btn btn-default btn-md">
             <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
           </button>

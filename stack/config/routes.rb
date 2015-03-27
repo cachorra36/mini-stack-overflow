@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   
 
   resources :questions do
-    resources :answers
+    resources :answers do
+      member do
+      get 'upvote'
+      get 'downvote'
+      end
+      end
     member do
       get 'upvote'
       get 'downvote'
