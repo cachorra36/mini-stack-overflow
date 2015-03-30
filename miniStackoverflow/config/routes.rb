@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  # get 'questions/index'
   root 'questions#index'
+
   resources :questions do
     member do
       post "up_vote"
@@ -14,5 +14,5 @@ Rails.application.routes.draw do
       delete 'down_vote'
     end
   end
-  # post 'questions/:id/up_vote' => "questions#up_vote"
+
 end

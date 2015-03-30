@@ -1,5 +1,6 @@
 <div class="row questions-index">
   <div class="col-lg-8 col-lg-offset-2">
+    <p class="zen">Quote</p>
     <h1>Mini Stackoverflow</h1>
     <p>
       <%= link_to "New Question", new_question_path , class: "btn btn-primary"%>
@@ -7,3 +8,17 @@
     <%= render @questions %>
   </div>
 </div>
+
+<script>
+
+ $(document).ready(function() {
+  $.ajax({
+    url : "https://api.github.com/zen",
+    dataType: "text",
+    success : function (data) {
+      $(".zen").html(data);
+    }
+  });
+});
+
+</script>
